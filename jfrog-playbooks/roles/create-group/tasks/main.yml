@@ -1,0 +1,17 @@
+---
+- name:
+  set_fact:
+    ip: 13.235.11.202
+    Gname: demo-group 
+- name: Create a Group
+  uri:
+    url: 'http://{{ ip }}:8081/artifactory/api/security/groups/{{ Gname }}'
+    method: PUT
+    user: admin
+    password: test@1234
+    body: "{{ lookup('file','create-group.json') }}"
+    body_format: json
+    force_basic_auth: yes
+    status_code: 201
+- name: group created
+  shell: 'echo "{{ Gname}}" > ansible_group_created.out'

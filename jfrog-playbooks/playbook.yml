@@ -1,0 +1,15 @@
+---
+- hosts: node1
+  become: true
+  roles:
+    - {role: create-group,tags: create-group}
+    - {role: create-local-repo,tags: create-local-repo}
+    - {role: create-user,tags: create-user}
+    - {role: delete-artifacts,tags: delete-artifacts}
+    - {role: deploy-artifacts,tags: deploy-artifacts}
+    - {role: delete-repository,tags: delete-repository}
+    - {role: Empty-Trash-Can,tags: Empty-Trash-Can}
+    - {role: delete-item-from-trash,tags: delete-item-from-trash}
+    - {role: deploy-artifacts-with-properties,tags: deploy-artifacts-with-properties}
+    - {role: run_garbage_collection,tags: run_garbage_collection}
+    

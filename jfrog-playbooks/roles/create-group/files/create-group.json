@@ -1,0 +1,7 @@
+{
+  "name" : "demo-group",
+  "description" : "A group users",
+  "autoJoin" : false,
+  "realm" : "internal",
+  "adminPrivileges" : false
+}

@@ -1,0 +1,6 @@
+---
+- name: 
+  set_fact:
+    ip: 13.235.11.202
+- name: deploy artifacts 
+  shell: 'curl -uadmin:test@1234 -T /root/artifact.zip "http://{{ ip }}:8081/artifactory/demo-repo/artifact.zip"'

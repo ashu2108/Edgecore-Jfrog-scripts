@@ -1,0 +1,9 @@
+---
+- name:
+  set_fact:
+    ip: 13.235.11.202
+    repository_name: jenkins
+    binary_path: /root/jfrog.py
+    binary_name: jfrog.py
+- name: deploy artifacts with properties
+  shell: 'curl -X PUT -uadmin:test@1234 --data-binary @{{ binary_path }} "http://{{ ip }}:8081/artifactory/{{ repository_name }}/{{ binary_name }};build.version=1.0;build.device=linux"'

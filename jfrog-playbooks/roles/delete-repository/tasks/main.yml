@@ -1,0 +1,14 @@
+---
+- name:
+  set_fact:
+    ip: 13.235.11.202
+- name: delete repository
+  uri:
+    url: 'http://{{ ip }}:8081/artifactory/api/repositories/demo-repo'
+    method: DELETE
+    user: admin
+    password: test@1234
+    body_format: json
+    force_basic_auth: yes
+    status_code: 200
+

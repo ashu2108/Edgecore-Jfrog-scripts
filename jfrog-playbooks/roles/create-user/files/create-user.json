@@ -1,0 +1,13 @@
+{
+  "name" : "demo-user1",
+  "email" : "demo-user1@gmail.com",
+  "admin" : false,
+  "profileUpdatable" : true,
+  "internalPasswordDisabled" : false,
+  "realm" : "internal",
+  "offlineMode" : false,
+  "disableUIAccess" : false,
+  "password" : "test@12345"
+}
+
+

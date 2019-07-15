@@ -1,0 +1,21 @@
+---
+- name: 
+  set_fact:
+    ip: 13.235.11.202
+- name: Create a user
+  uri:
+    url: 'http://{{ ip }}:8081/artifactory/api/security/users/"{{ item }}"'
+    method: PUT
+    user: admin
+    password: test@1234
+    #body: "{{ lookup('file','create-user.json') }}"
+    body: {   "name" : "\"{{ item }}\"" ,  "email" : "\"{{ item }}\"@gmail.com",  "admin" : false,  "profileUpdatable" : true,  "internalPasswordDisabled" : false,  "realm" : "internal",  "offlineMode" : false,  "disableUIAccess" : false,  "password" : "test@12345" }
+    body_format: json
+    force_basic_auth: yes
+    status_code: 201
+    loop:
+      - william_chiang 
+      - pttch 
+      - brian_lin 
+#- name: user created
+#  shell: 'echo "{{ item }}" >> ansible_user_created.out'

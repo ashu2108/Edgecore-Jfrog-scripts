@@ -1,0 +1,17 @@
+---
+- name:
+  set_fact:
+    ip: 13.235.11.202
+    Reponame: demo-repo
+- name: Create a user
+  uri:
+    url: 'http://{{ ip }}:8081/artifactory/api/repositories/{{ Reponame }}'
+    method: PUT
+    user: admin
+    password: test@1234
+    body: "{{ lookup('file','local-generic.json') }}"
+    body_format: json
+    force_basic_auth: yes
+    status_code: 200
+- name: repo created
+  shell: 'echo "{{ Reponame}}" > ansible_repo_created.out'
